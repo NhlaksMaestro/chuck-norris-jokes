@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="cell-4 cell-offset-4">
+      <div>
+          <input [formControl]="freeTextSearch" type="text"
+          placeholder="search for chuck norris jokes..." autofocus/>
+          <b>Jokes Count: {{freeTextSearchResults.total}}</b>
+        </div>
+    </div>
+  </div>
+</div>
+<div>
+  <app-spinner *ngIf="isLoading">Loading data...</app-spinner>
+  <app-search-results *ngIf="!isLoading" [freeTextResults]="freeTextSearchResults">
+  </app-search-results>
+</div>

@@ -1,0 +1,5 @@
+<div class="row" [@openClose]="this.isOpen ? 'open': 'closed'">
+  <div *ngFor="let category of categoriesList; let i = index" class="cell-6">
+    <app-category [position]="i+1" [category]="category"></app-category>
+  </div>
+</div>

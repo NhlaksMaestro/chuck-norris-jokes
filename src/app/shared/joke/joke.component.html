@@ -1,0 +1,24 @@
+<!--
+<div  [@spinStop]="isSpinning ? 'spin': 'stop'"
+*ngIf="showDialog" class="overlay cell-6" style="background: rgba(0, 0, 0, 0.5);" >
+ <div class="padding20 info-box" data-role="infobox">
+   <span class="button square closer" (click)="closeJoke()"></span>
+   <div class="info-box-content">
+     <h3>Joke Id: {{retrievedJoke.id}}</h3>
+     <a [href]="retrievedJoke.url">
+       <figure>
+         <img [src]="retrievedJoke.icon_url || '//:0' " />
+         <figcaption>
+           <blockquote>
+             <p>{{retrievedJoke.value}}</p>
+           </blockquote>
+         </figcaption>
+       </figure>
+     </a>
+     <button class="button secondary" (click)="viewJoke()">click for a random joke!</button>
+   </div>
+ </div>
+ <svg *ngIf="isLoading" class="circular">
+   <circle class="path" cx="32" cy="32" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle>
+ </svg>
+</div> -->

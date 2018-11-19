@@ -1,10 +1,19 @@
 import { Component } from '@angular/core';
+import { SpinnerService } from './shared/spinner/spinner.service';
+import { fadeAnimation } from './fade.animation';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  animations: [fadeAnimation]
 })
 export class AppComponent {
   title = 'chuck-norris-jokes';
+  showLoader: boolean;
+
+  constructor(
+    private readonly spinnerService: SpinnerService
+  ) {
+  }
 }

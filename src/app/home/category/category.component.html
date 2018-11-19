@@ -1,0 +1,48 @@
+<div class="row" >
+    <div
+    class="cell-6 + offset-3 background-imaging"
+    [ngStyle]="{ 'background-image': category.CategoryImageSource}">
+        <div >
+          <h1 class="gradient-text">{{position}}) {{category.CategoryName}}</h1>
+          <P class="gradient-text">
+            How Chuck Norris Defies {{category.CategoryName}}!
+          </P>
+          <button class="button gradient-text secondary gradient-border"
+           (click)="viewJoke()">click for a random joke!</button>
+        </div>
+      </div>
+</div>
+<div
+ *ngIf="showDialog"
+ class="overlay"
+ style="background: rgba(0, 0, 0, 0.5);" >
+ <div class="cell-4 offset-4">
+  <div class="card bg-white" [@spinStop]="spin ? 'spin': 'stop'">
+      <div class="card-header ">
+          <div class="avatar">
+              <img [src]="retrievedJoke.icon_url">
+          </div>
+          <div class="name" >
+              <b *ngIf="retrievedJoke.category != null && retrievedJoke.category.length > 0" [ngStyle]="{'text-transform': 'uppercase'}">
+                {{retrievedJoke.category.shift()}}
+              </b>
+               <b *ngIf="retrievedJoke.category  == null || retrievedJoke.category.length <= 0" [ngStyle]="{'text-transform': 'uppercase'}">Has
+                  Has No Category Name
+                </b>
+              </div>
+          <div class="name">{{retrievedJoke.category}}</div>
+          <div class="date">Monday at 3:47 PM</div>
+      </div>
+      <div class="card-content p-2">
+        <p><b>{{retrievedJoke.value}}</b></p>
+      </div>
+      <div class="card-footer">
+          <button class="button secondary"
+          (click)="viewJoke()">
+          click for a random joke!</button>
+      </div>
+  </div>
+  <svg *ngIf="isLoading" class="circular">
+    <circle class="path" cx="32" cy="32" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle>
+  </svg>
+</div>

@@ -1,0 +1,108 @@
+<div class="row">
+  <div class="cell-4 offset-4">
+    <div> <div class="buttons">
+        <button class="fill" *ngIf="randomNumber==1" (click)="retrieveRandomJoke();">View Joke</button>
+        <button class="pulse" *ngIf="randomNumber==2" (click)="retrieveRandomJoke();">View Joke</button>
+        <button class="close" *ngIf="randomNumber==3" (click)="retrieveRandomJoke();">View Joke</button>
+        <button class="raise" *ngIf="randomNumber==4" (click)="retrieveRandomJoke();">View Joke</button>
+        <button class="up" *ngIf="randomNumber==5" (click)="retrieveRandomJoke();">View Joke</button>
+        <button class="slide" *ngIf="randomNumber==6" (click)="retrieveRandomJoke();">View Joke</button>
+        <button class="offset" *ngIf="randomNumber==7" (click)="retrieveRandomJoke();">View Joke</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="retrievedJoke.icon_url != null && retrievedJoke.icon_url.length > 0"> <!-- (click)="toggleFlipFlop()" [@flipFlop]="flipFlop"> -->
+  <div class="cell-4 offset-4">
+    <div>
+      <div class="card image-header">
+        <div class="card-header fg-orange" [ngStyle]="{'background-image': 'url(' + retrievedJoke.icon_url + ')', 'background-size': 'auto'}">
+          <b *ngIf="retrievedJoke.category != null && retrievedJoke.category.length > 0" [ngStyle]="{'text-transform': 'uppercase'}">
+            {{retrievedJoke.category.shift()}}
+          </b>
+          <b *ngIf="retrievedJoke.category  == null || retrievedJoke.category.length <= 0" [ngStyle]="{'text-transform': 'uppercase'}">Has
+            no Category
+          </b>
+        </div>
+        <div class="card-content p-2">
+          <p class="fg-orange">{{retrievedJoke.id}}</p>
+          {{retrievedJoke.value}}
+        </div>
+        <div class="card-footer">
+          <a [href]="retrievedJoke.url">
+            <b [ngStyle]="{'overflow-wrap': break-word}">
+              Go to Page: {{retrievedJoke.id}}
+            </b>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- testing flip flop -->
+<!-- <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <div class="front">
+      <!- front content ->
+      <div class="row" *ngIf="retrievedJoke.icon_url != null && retrievedJoke.icon_url.length > 0">
+        <div class="cell-12">
+          <div>
+            <div class="card image-header">
+              <div class="card-header fg-orange" [ngStyle]="{'background-image': 'url(' + retrievedJoke.icon_url + ')', 'background-size': 'auto'}">
+                <b *ngIf="retrievedJoke.category != null && retrievedJoke.category.length > 0" [ngStyle]="{'text-transform': 'uppercase'}">
+                  {{retrievedJoke.category.shift()}}
+                </b>
+                <b *ngIf="retrievedJoke.category  == null || retrievedJoke.category.length <= 0" [ngStyle]="{'text-transform': 'uppercase'}">Has
+                  no Category
+                </b>
+              </div>
+              <div class="card-content p-2">
+                <p class="fg-orange">{{retrievedJoke.id}}</p>
+                {{retrievedJoke.value}}
+              </div>
+              <div class="card-footer">
+                <a [href]="retrievedJoke.url">
+                  <b [ngStyle]="{'overflow-wrap': break-word}">
+                    Go to Page: {{retrievedJoke.id}}
+                  </b>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="back">
+      <!- back content ->
+      <div class="row">
+        <div class="cell-4 cell-offset-4">
+          <div>
+            <div class="card image-header">
+              <div class="card-header fg-orange" [ngStyle]="{'background-image': 'url(' + retrievedJoke.icon_url + ')', 'background-size': 'auto'}">
+                <b *ngIf="retrievedJoke.category != null && retrievedJoke.category.length > 0" [ngStyle]="{'text-transform': 'uppercase'}">
+                  {{retrievedJoke.category.shift()}}
+                </b>
+                <b *ngIf="retrievedJoke.category  == null || retrievedJoke.category.length <= 0" [ngStyle]="{'text-transform': 'uppercase'}">Has
+                  no Category
+                </b>
+              </div>
+              <div class="card-content p-2">
+                <p class="fg-orange">{{retrievedJoke.id}}</p>
+                {{retrievedJoke.value}}
+              </div>
+              <div class="card-footer">
+                <a [href]="retrievedJoke.url">
+                  <b [ngStyle]="{'overflow-wrap': break-word}">
+                    Go to Page: {{retrievedJoke.id}}
+                  </b>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
